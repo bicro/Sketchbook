@@ -8,7 +8,8 @@
  * https://github.com/swift502/Sketchbook
  */
 
-const THREE = require('three');
+//const THREE = require('three');
+import * as THREE from 'three';
 
 export let WaterShader = {
 

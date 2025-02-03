@@ -13,7 +13,8 @@
  * Node.js module implementation by Danila Loginov https://loginov.rocks
  */
 
-const THREE = require('three');
+//const THREE = require('three');
+import * as THREE from 'three';
 
 export let SkyShader = {
 

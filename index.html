@@ -1,15 +1,36 @@
 <!DOCTYPE html>
 <html>
+    <head>
+        <title>Sketchbook</title>
+        <link type="text/css" rel="stylesheet" href="./src/css/main.css" />
+        <link type="text/css" rel="stylesheet" href="./src/css/modules/githubCorner.css" />
+        <link type="text/css" rel="stylesheet" href="./src/css/modules/dat.gui.css" />
+        <link type="text/css" rel="stylesheet" href="./src/css/modules/welcomeScreen.css" />
+        <link type="text/css" rel="stylesheet" href="./src/lib/sweetalert2/dist/sweetalert2.min.css" />
 
-<head>
-	<title>Sketchbook</title>
-</head>
+        <script type="importmap">
+            {
+                "imports": {
+                    "three": "https://cdn.jsdelivr.net/npm/three@0.113.0/build/three.module.js",
+                    "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.113.0/examples/jsm/",
+                    "AmmoLib": "https://cdn.jsdelivr.net/npm/ammo.js@0.0.10/ammo.min.js",
+                    "Cannon": "https://cdn.jsdelivr.net/npm/cannon@0.6.2/build/cannon.min.js",
+                    "jquery": "https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"
+                }
+            }
+        </script>
 
-<body>
-	<script src="build/sketchbook.min.js"></script>
-	<script>
-		const world = new Sketchbook.World('build/assets/world.glb');
-	</script>
-</body>
+        <script src="./src/lib/cannon/cannon.js"></script>
+        <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script src="./src/lib/Lodash/lodash.js"></script>
+        <script src="./src/lib/sweetalert2/dist/sweetalert2.min.js"></script>
+        <script src="./src/lib/dat_gui/dat.gui.min.js"></script>
+    </head>
 
+    <body>
+        <script type="module">
+            import { World } from "./src/js/world/World.js";
+            const world = new World("build/assets/world.glb");
+        </script>
+    </body>
 </html>
