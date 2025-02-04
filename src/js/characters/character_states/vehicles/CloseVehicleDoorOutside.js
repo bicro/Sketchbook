@@ -1,4 +1,4 @@
-import { CharacterStateBase } from "../_stateLibrary.js";
+import { CharacterStateBase } from "../stateLibrary.js";
 
 import { Side } from '../../../enums/Side.js';
 import * as Utils from '../../../core/FunctionLibrary.js';

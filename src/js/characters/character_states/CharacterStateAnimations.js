@@ -16,7 +16,7 @@ import {
 	StartWalkRight,
 	EndWalk,
 	Walk,
-} from './_stateLibrary.js';
+} from './stateLibrary.js';
 
 import{ Driving } from './vehicles/Driving.js'
 import{ EnteringVehicle } from './vehicles/EnteringVehicle.js'

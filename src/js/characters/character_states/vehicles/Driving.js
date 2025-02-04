@@ -1,4 +1,4 @@
-import { CharacterStateBase } from "../_stateLibrary.js";
+import { CharacterStateBase } from "../stateLibrary.js";
 
 export class Driving extends CharacterStateBase {
     constructor(character, seat) {

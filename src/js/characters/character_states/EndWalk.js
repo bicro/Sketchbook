@@ -1,4 +1,4 @@
-import { CharacterStateBase } from './_stateLibrary.js';
+import { CharacterStateBase } from './stateLibrary.js';
 
 export class EndWalk extends CharacterStateBase
 {

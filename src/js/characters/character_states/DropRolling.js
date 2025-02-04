@@ -1,10 +1,10 @@
 
-import { CharacterStateBase } from './_stateLibrary.js';
+import { CharacterStateBase } from './stateLibrary.js';
 
 import {
 	EndWalk,
 	Walk
-} from './_stateLibrary.js';
+} from './stateLibrary.js';
 
 export class DropRolling extends CharacterStateBase
 {

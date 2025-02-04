@@ -1,5 +1,5 @@
 import * as Utils from '../../core/FunctionLibrary.js';
-import { CharacterStateBase } from './_stateLibrary.js';
+import { CharacterStateBase } from './stateLibrary.js';
 
 export class StartWalkBase extends CharacterStateBase
 {

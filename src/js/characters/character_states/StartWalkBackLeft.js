@@ -1,4 +1,4 @@
-import { StartWalkBase } from './_stateLibrary.js';
+import { StartWalkBase } from './stateLibrary.js';
 
 export class StartWalkBackLeft extends StartWalkBase
 {

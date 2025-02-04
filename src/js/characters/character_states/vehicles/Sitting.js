@@ -1,4 +1,4 @@
-import { CharacterStateBase } from "../_stateLibrary.js";
+import { CharacterStateBase } from "../stateLibrary.js";
 import { SeatType } from '../../../enums/SeatType.js';
 
 export class Sitting extends CharacterStateBase
