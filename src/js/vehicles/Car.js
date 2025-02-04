@@ -23,6 +23,10 @@ export class Car extends Vehicle {
 
         this._speed = 0;
 
+        this.speed = function () {
+            return this._speed;
+        };
+
         // this.wheelsDebug: THREE.Mesh[] = [];
         this.steeringWheel;
         this.airSpinTimer = 0;
@@ -54,10 +58,6 @@ export class Car extends Vehicle {
         };
 
         this.steeringSimulator = new SpringSimulator(60, 10, 0.6);
-    }
-
-    speed() {
-        return this._speed;
     }
 
     noDirectionPressed() {
@@ -104,23 +104,24 @@ export class Car extends Vehicle {
         } else {
             // Transmission
             if (this.actions.reverse.isPressed) {
-                const powerFactor = (gearsMaxSpeeds["R"] - this.speed) / Math.abs(gearsMaxSpeeds["R"]);
+                const powerFactor = (gearsMaxSpeeds["R"] - this.speed()) / Math.abs(gearsMaxSpeeds["R"]);
                 const force = (engineForce / this.gear) * Math.abs(powerFactor) ** 1;
 
                 this.applyEngineForce(force);
             } else {
                 const powerFactor =
-                    (gearsMaxSpeeds[this.gear] - this.speed) /
+                    (gearsMaxSpeeds[this.gear] - this.speed()) /
                     (gearsMaxSpeeds[this.gear] - gearsMaxSpeeds[this.gear - 1]);
 
                 if (powerFactor < 0.1 && this.gear < maxGears) this.shiftUp();
                 else if (this.gear > 1 && powerFactor > 1.2) this.shiftDown();
                 else if (this.actions.throttle.isPressed) {
-                    const force = (engineForce / this.gear) * powerFactor ** 1;
-                    this.applyEngineForce(-force);
-                }
+                        const force = (engineForce / this.gear) * powerFactor ** 1;
+                        this.applyEngineForce(-force);
+                    }
             }
         }
+
 
         // Steering
         this.steeringSimulator.simulate(timeStep);
@@ -174,9 +175,9 @@ export class Car extends Vehicle {
         // Air spin
         // It takes 2 seconds until you have max spin air control since you leave the ground
         let airSpinInfluence = THREE.MathUtils.clamp(this.airSpinTimer / 2, 0, 1);
-        airSpinInfluence *= THREE.MathUtils.clamp(this.speed, 0, 1);
+        airSpinInfluence *= THREE.MathUtils.clamp(this.speed(), 0, 1);
 
-        const flipSpeedFactor = THREE.MathUtils.clamp(1 - this.speed, 0, 1);
+        const flipSpeedFactor = THREE.MathUtils.clamp(1 - this.speed(), 0, 1);
         const upFactor = up.dot(new THREE.Vector3(0, -1, 0)) / 2 + 0.5;
         const flipOverInfluence = flipSpeedFactor * upFactor * 3;
 
@@ -226,7 +227,7 @@ export class Car extends Vehicle {
         let driftCorrection = Utils.getSignedAngleBetweenVectors(Utils.threeVector(velocity), forward);
 
         const maxSteerVal = 0.8;
-        let speedFactor = THREE.MathUtils.clamp(this.speed * 0.3, 1, Number.MAX_VALUE);
+        let speedFactor = THREE.MathUtils.clamp(this.speed() * 0.3, 1, Number.MAX_VALUE);
 
         if (this.actions.right.isPressed) {
             let steering = Math.min(-maxSteerVal / speedFactor, -driftCorrection);
@@ -238,7 +239,7 @@ export class Car extends Vehicle {
 
         // Update doors
         this.seats.forEach((seat) => {
-            if(seat.door) {
+            if (seat.door) {
                 seat.door.preStepCallback();
             }
         });

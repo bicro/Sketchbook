@@ -203,14 +203,18 @@ export class World
 
 		// Update registred objects
 		this.updatables.forEach((entity) => {
-			entity.update(timeStep, unscaledTimeStep);
+			if(entity.entityType === "Car") {
+				let ent = entity;
+				let entt = entity.entityType
+			}
+				entity.update(timeStep, unscaledTimeStep);
 		});
 
 		// Lerp time scale
 		this.params.Time_Scale = THREE.MathUtils.lerp(this.params.Time_Scale, this.timeScaleTarget, 0.2);
 
 		// Physics debug
-		if (this.params.Debug_Physics) this.cannonDebugRenderer.update();
+		//if (this.params.Debug_Physics) this.cannonDebugRenderer.update();
 	}
 
 	updatePhysics(timeStep)
@@ -395,6 +399,12 @@ export class World
 		// Launch default scenario
 		let defaultScenarioID;
 		for (const scenario of this.scenarios) {
+			// start in aircraft mode
+			// if (scenario.id === "default001") {
+			// 	defaultScenarioID = scenario.id;
+			// 	break;
+			// }
+			// start in car mode
 			if (scenario.default) {
 				defaultScenarioID = scenario.id;
 				break;

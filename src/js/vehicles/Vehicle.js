@@ -119,8 +119,8 @@ export class Vehicle extends THREE.Object3D
 	onInputChange()
 	{
 		if (this.actions.seat_switch.justPressed 
-			&& this.controllingCharacter
-			&& this.controllingCharacter.occupyingSeat
+			//&& this.controllingCharacter
+			//&& this.controllingCharacter.occupyingSeat
 			&& this.controllingCharacter.occupyingSeat.connectedSeats.length > 0)
 		{
 			this.controllingCharacter.modelContainer.visible = true;
@@ -175,6 +175,7 @@ export class Vehicle extends THREE.Object3D
 
 					if (_.includes(binding.eventCodes, code))
 					{
+						// BUG
 						this.triggerAction(action, pressed);
 					}
 				}

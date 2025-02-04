@@ -1,4 +1,4 @@
-import { CharacterStateBase } from "./CharacterStateBase.js";
+import { CharacterStateBase } from "./_stateLibrary.js";
 
 import {
 	Idle,

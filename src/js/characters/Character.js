@@ -581,7 +581,7 @@ export class Character extends THREE.Object3D {
                 let targetSeat = seatFinder.closestObject;
                 vehicleEntryInstance.targetSeat = targetSeat;
 
-                let entryPointFinder = new ClosestObjectFinder( this.position);
+                let entryPointFinder = new ClosestObjectFinder(this.position);
 
                 for (const point of targetSeat.entryPoints) {
                     point.getWorldPosition(worldPos);
@@ -599,12 +599,11 @@ export class Character extends THREE.Object3D {
 
     enterVehicle(seat, entryPoint) {
         this.resetControls();
-        if (seat.door) {
-            if (seat.door.rotation < 0.5) {
-                this.setState(new OpenVehicleDoor(this, seat, entryPoint));
-            } else {
-                this.setState(new EnteringVehicle(this, seat, entryPoint));
-            }
+
+        if (seat.door && seat.door.rotation < 0.5) {
+            this.setState(new OpenVehicleDoor(this, seat, entryPoint));
+        } else {
+            this.setState(new EnteringVehicle(this, seat, entryPoint));
         }
     }
 

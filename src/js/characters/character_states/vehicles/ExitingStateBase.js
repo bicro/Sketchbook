@@ -1,7 +1,6 @@
 import * as THREE from 'three';
 import * as Utils from '../../../core/FunctionLibrary.js';
 
-//import { CharacterStateBase } from '../CharacterStateBase.js'
 
 import
 {
