@@ -1,3 +1,15 @@
+KellyCode Feb 4, 2025  
+First:  
+This is an extremely cool project, thank you swift502 for making it  
+Very clean code and well organized and easy to work with  
+So I ...  
+Converted everything typescript to vanilla javascript  
+removed anything webpack so it'll run without much effort  
+deciphered the scene/scenario building process in Blender  
+which I'll get around to explaining at some point  
+
+---
+
 <p align="center">
 	<a href="https://jblaha.art/sketchbook/latest"><img src="./src/img/thumbnail.png"></a>
 	<br>
