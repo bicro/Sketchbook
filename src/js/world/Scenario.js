@@ -83,6 +83,7 @@ export class Scenario {
     }
 
     launch(loadingManager, world) {
+        let boss = this;
         this.spawnPoints.forEach((sp) => {
             sp.spawn(loadingManager, world);
         });

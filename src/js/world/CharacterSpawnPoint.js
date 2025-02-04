@@ -8,7 +8,7 @@ export class CharacterSpawnPoint {
     }
 
     spawn(loadingManager, world) {
-        loadingManager.loadGLTF("build/assets/boxman.glb", (model) => {
+        loadingManager.loadGLTF("assets/boxman.glb", (model) => {
             let player = new Character(model);
 
             let worldPos = new THREE.Vector3();
