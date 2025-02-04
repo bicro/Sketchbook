@@ -4,8 +4,6 @@ import { CharacterStateBase } from "../_stateLibrary.js";
 
 
 import { Side } from '../../../enums/Side.js';
-import { Idle } from '../Idle.js';
-import { EnteringVehicle } from './EnteringVehicle.js';
 import * as Utils from '../../../core/FunctionLibrary.js';
 import { SpringSimulator } from '../../../physics/spring_simulation/SpringSimulator.js';
 
@@ -72,11 +70,11 @@ export class OpenVehicleDoor extends CharacterStateBase
 				this.character.vehicleEntryInstance = null;
 				this.character.world.graphicsWorld.attach(this.character);
 				this.character.setPhysicsEnabled(true);
-				this.character.setState(new Idle(this.character));
+				this.character.setState(new this.character.anims.Idle(this.character));
 			}
 			else
 			{
-				this.character.setState(new EnteringVehicle(this.character, this.seat, this.entryPoint));
+				this.character.setState(new this.character.anims.EnteringVehicle(this.character, this.seat, this.entryPoint));
 			}
 		}
 		else

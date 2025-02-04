@@ -21,6 +21,8 @@ import { ClosestObjectFinder } from "../core/ClosestObjectFinder.js";
 import { Object3D } from "three";
 import { EntityType } from "../enums/EntityType.js";
 
+import { CharacterStateAnimations } from "./character_states/CharacterStateAnimations.js";
+
 export class Character extends THREE.Object3D {
     constructor(gltf) {
         super();
@@ -28,6 +30,8 @@ export class Character extends THREE.Object3D {
         //************* */
         this.updateOrder = 1;
         this.entityType = EntityType.Character;
+
+        this.anims = new CharacterStateAnimations();
 
         this.height = 0;
         this.tiltContainer;

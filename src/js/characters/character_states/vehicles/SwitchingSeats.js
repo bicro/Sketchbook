@@ -1,12 +1,8 @@
 import * as THREE from 'three';
 
 import { CharacterStateBase } from "../_stateLibrary.js";
-
-
 import { Side } from '../../../enums/Side.js';
 import { SeatType } from '../../../enums/SeatType.js';
-import { Driving } from './Driving.js';
-import { Sitting } from './Sitting.js';
 import * as Utils from '../../../core/FunctionLibrary.js';
 import { Space } from '../../../enums/Space.js';
 
@@ -58,11 +54,11 @@ export class SwitchingSeats extends CharacterStateBase
 		{
 			if (this.toSeat.type === SeatType.Driver)
 			{
-				this.character.setState(new Driving(this.character, this.toSeat));
+				this.character.setState(new this.character.anims.Driving(this.character, this.toSeat));
 			}
 			else if (this.toSeat.type === SeatType.Passenger)
 			{
-				this.character.setState(new Sitting(this.character, this.toSeat));
+				this.character.setState(new this.character.anims.Sitting(this.character, this.toSeat));
 			}
 		}
 		else

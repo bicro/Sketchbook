@@ -1,13 +1,4 @@
-
-
 import { CharacterStateBase } from './_stateLibrary.js';
-
-import {
-	JumpRunning,
-	Sprint,
-	EndWalk,
-	Walk
-} from './_stateLibrary.js';
 
 export class DropRunning extends CharacterStateBase
 {
@@ -27,7 +18,7 @@ export class DropRunning extends CharacterStateBase
 
 		if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Walk(this.character));
+			this.character.setState(new this.character.anims.Walk(this.character));
 		}
 	}
 
@@ -37,17 +28,17 @@ export class DropRunning extends CharacterStateBase
 		
 		if (this.noDirection())
 		{
-			this.character.setState(new EndWalk(this.character));
+			this.character.setState(new this.character.anims.EndWalk(this.character));
 		}
 
 		if (this.anyDirection() && this.character.actions.run.justPressed)
 		{
-			this.character.setState(new Sprint(this.character));
+			this.character.setState(new this.character.anims.Sprint(this.character));
 		}
 
 		if (this.character.actions.jump.justPressed)
 		{
-			this.character.setState(new JumpRunning(this.character));
+			this.character.setState(new this.character.anims.JumpRunning(this.character));
 		}
 	}
 }

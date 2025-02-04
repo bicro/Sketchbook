@@ -2,9 +2,7 @@ import * as THREE from 'three';
 
 import { CharacterStateBase } from "../_stateLibrary.js";
 
-import { Driving } from './Driving.js';
 import { Side } from '../../../enums/Side.js';
-import { Sitting } from './Sitting.js';
 import { SeatType } from '../../../enums/SeatType.js';
 import { EntityType } from '../../../enums/EntityType.js';
 import * as Utils from '../../../core/FunctionLibrary.js';
@@ -60,11 +58,11 @@ export class EnteringVehicle extends CharacterStateBase
 			if (this.seat.type === SeatType.Driver)
 			{
 				if (this.seat.door) this.seat.door.physicsEnabled = true;
-				this.character.setState(new Driving(this.character, this.seat));
+				this.character.setState(new this.character.anims.Driving(this.character, this.seat));
 			}
 			else if (this.seat.type === SeatType.Passenger)
 			{
-				this.character.setState(new Sitting(this.character, this.seat));
+				this.character.setState(new this.character.anims.Sitting(this.character, this.seat));
 			}
 		}
 		else

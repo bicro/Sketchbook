@@ -1,6 +1,4 @@
-
 import { CharacterStateBase } from './_stateLibrary.js';
-
 
 export class Falling extends CharacterStateBase
 {

@@ -1,11 +1,8 @@
 import { CharacterStateBase } from "../_stateLibrary.js";
 
 import { Side } from "../../../enums/Side.js";
-import { Driving } from "./Driving.js";
 import { SeatType } from "../../../enums/SeatType.js";
-import { Sitting } from "./Sitting.js";
 import * as Utils from "../../../core/FunctionLibrary.js";
-
 
 export class CloseVehicleDoorInside extends CharacterStateBase {
     constructor(character, seat) {
@@ -41,9 +38,9 @@ export class CloseVehicleDoorInside extends CharacterStateBase {
 
         if (this.animationEnded(timeStep)) {
             if (this.seat.type === SeatType.Driver) {
-                this.character.setState(new Driving(this.character, this.seat));
+                this.character.setState(new this.character.anims.Driving(this.character, this.seat));
             } else if (this.seat.type === SeatType.Passenger) {
-                this.character.setState(new Sitting(this.character, this.seat));
+                this.character.setState(new this.character.anims.Sitting(this.character, this.seat));
             }
         }
     }

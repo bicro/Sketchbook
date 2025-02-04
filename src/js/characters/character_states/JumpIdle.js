@@ -1,10 +1,4 @@
-
-
 import { CharacterStateBase } from './_stateLibrary.js';
-
-import {
-	Falling
-} from './_stateLibrary.js';
 
 export class JumpIdle extends CharacterStateBase
 {
@@ -60,7 +54,7 @@ export class JumpIdle extends CharacterStateBase
 		}
 		else if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Falling(this.character));
+			this.character.setState(new this.character.anims.Falling(this.character));
 		}
 	}
 }

@@ -1,7 +1,5 @@
 import { CharacterStateBase } from "../_stateLibrary.js";
 
-import { CloseVehicleDoorInside } from "./CloseVehicleDoorInside.js";
-
 export class Driving extends CharacterStateBase {
     constructor(character, seat) {
         super(character);
@@ -21,7 +19,7 @@ export class Driving extends CharacterStateBase {
         if (this.seat.door) {
             if (!this.seat.door.achievingTargetRotation && this.seat.door.rotation > 0 && this.seat.vehicle.noDirectionPressed())
                 {
-                    this.character.setState(new CloseVehicleDoorInside(this.character, this.seat));
+                    this.character.setState(new this.character.anims.CloseVehicleDoorInside(this.character, this.seat));
                 }
         }
     }

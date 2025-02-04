@@ -1,12 +1,5 @@
 import { CharacterStateBase } from "./_stateLibrary.js";
 
-import {
-	Idle,
-	JumpRunning,
-	Sprint,
-	EndWalk
-} from './_stateLibrary.js';
-
 export class Walk extends CharacterStateBase {
     constructor(character) {
         super(character);
@@ -28,26 +21,26 @@ export class Walk extends CharacterStateBase {
         super.onInputChange();
 
         if (this.noDirection()) {
-            this.character.setState(new EndWalk(this.character));
+            this.character.setState(new this.character.anims.EndWalk(this.character));
         }
 
         if (this.character.actions.run.isPressed) {
-            this.character.setState(new Sprint(this.character));
+            this.character.setState(new this.character.anims.Sprint(this.character));
         }
 
         if (this.character.actions.run.justPressed) {
-            this.character.setState(new Sprint(this.character));
+            this.character.setState(new this.character.anims.Sprint(this.character));
         }
 
         if (this.character.actions.jump.justPressed) {
-            this.character.setState(new JumpRunning(this.character));
+            this.character.setState(new this.character.anims.JumpRunning(this.character));
         }
 
         if (this.noDirection()) {
             if (this.character.velocity.length() > 1) {
-                this.character.setState(new EndWalk(this.character));
+                this.character.setState(new this.character.anims.EndWalk(this.character));
             } else {
-                this.character.setState(new Idle(this.character));
+                this.character.setState(new this.character.anims.Idle(this.character));
             }
         }
     }

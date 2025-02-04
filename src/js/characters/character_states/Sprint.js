@@ -1,12 +1,4 @@
-
 import { CharacterStateBase } from './_stateLibrary.js';
-
-import {
-	JumpRunning,
-	EndWalk,
-	Walk
-} from './_stateLibrary.js';
-
 
 export class Sprint extends CharacterStateBase
 {
@@ -37,17 +29,17 @@ export class Sprint extends CharacterStateBase
 
 		if (!this.character.actions.run.isPressed)
 		{
-			this.character.setState(new Walk(this.character));
+			this.character.setState(new this.character.anims.Walk(this.character));
 		}
 
 		if (this.character.actions.jump.justPressed)
 		{
-			this.character.setState(new JumpRunning(this.character));
+			this.character.setState(new this.character.anims.JumpRunning(this.character));
 		}
 
 		if (this.noDirection())
 		{
-			this.character.setState(new EndWalk(this.character));
+			this.character.setState(new this.character.anims.EndWalk(this.character));
 		}
 	}
 }

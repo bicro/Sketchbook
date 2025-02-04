@@ -1,12 +1,4 @@
-
-
 import { CharacterStateBase } from './_stateLibrary.js';
-
-import {
-	Idle,
-	JumpIdle,
-	Walk
-} from './_stateLibrary.js';
 
 export class IdleRotateRight extends CharacterStateBase
 {
@@ -32,7 +24,7 @@ export class IdleRotateRight extends CharacterStateBase
 
 		if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Idle(this.character));
+			this.character.setState(new this.character.anims.Idle(this.character));
 		}
 
 		this.fallInAir();
@@ -44,14 +36,14 @@ export class IdleRotateRight extends CharacterStateBase
 		
 		if (this.character.actions.jump.justPressed)
 		{
-			this.character.setState(new JumpIdle(this.character));
+			this.character.setState(new this.character.anims.JumpIdle(this.character));
 		}
 
 		if (this.anyDirection())
 		{
 			if (this.character.velocity.length() > 0.5)
 			{
-				this.character.setState(new Walk(this.character));
+				this.character.setState(new this.character.anims.Walk(this.character));
 			}
 			else
 			{

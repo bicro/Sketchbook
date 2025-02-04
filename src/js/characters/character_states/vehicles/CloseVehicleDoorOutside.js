@@ -1,7 +1,6 @@
 import { CharacterStateBase } from "../_stateLibrary.js";
 
 import { Side } from '../../../enums/Side.js';
-import { Idle } from '../Idle.js';
 import * as Utils from '../../../core/FunctionLibrary.js';
 
 export class CloseVehicleDoorOutside extends CharacterStateBase
@@ -38,7 +37,7 @@ export class CloseVehicleDoorOutside extends CharacterStateBase
 
 		if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Idle(this.character));
+			this.character.setState(new this.character.anims.Idle(this.character));
 			this.character.leaveSeat();
 		}
 	}

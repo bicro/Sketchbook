@@ -1,16 +1,6 @@
 import * as Utils from '../../core/FunctionLibrary.js';
 import { CharacterStateBase } from './_stateLibrary.js';
 
-import {
-	Idle,
-	IdleRotateLeft,
-	IdleRotateRight,
-	JumpRunning,
-	Sprint,
-	Walk,
-} from './_stateLibrary.js';
-
-
 export class StartWalkBase extends CharacterStateBase
 {
 	constructor(character)
@@ -32,7 +22,7 @@ export class StartWalkBase extends CharacterStateBase
 
 		if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Walk(this.character));
+			this.character.setState(new this.character.anims.Walk(this.character));
 		}
 
 		this.character.setCameraRelativeOrientationTarget();
@@ -63,7 +53,7 @@ export class StartWalkBase extends CharacterStateBase
 		
 		if (this.character.actions.jump.justPressed)
 		{
-			this.character.setState(new JumpRunning(this.character));
+			this.character.setState(new this.character.anims.JumpRunning(this.character));
 		}
 
 		if (this.noDirection())
@@ -74,26 +64,26 @@ export class StartWalkBase extends CharacterStateBase
 
 				if (angle > Math.PI * 0.4)
 				{
-					this.character.setState(new IdleRotateLeft(this.character));
+					this.character.setState(new this.character.anims.IdleRotateLeft(this.character));
 				}
 				else if (angle < -Math.PI * 0.4)
 				{
-					this.character.setState(new IdleRotateRight(this.character));
+					this.character.setState(new this.character.anims.IdleRotateRight(this.character));
 				}
 				else
 				{
-					this.character.setState(new Idle(this.character));
+					this.character.setState(new this.character.anims.Idle(this.character));
 				}
 			}
 			else
 			{
-				this.character.setState(new Idle(this.character));
+				this.character.setState(new this.character.anims.Idle(this.character));
 			}
 		}
 
 		if (this.character.actions.run.justPressed)
 		{
-			this.character.setState(new Sprint(this.character));
+			this.character.setState(new this.character.anims.Sprint(this.character));
 		}
 	}
 }

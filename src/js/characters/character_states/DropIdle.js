@@ -1,12 +1,4 @@
-
-import { CharacterStateBase } from './_stateLibrary.js';
-
-import {
-	Idle,
-	JumpIdle,
-	StartWalkForward,
-} from './_stateLibrary.js';
-
+import { CharacterStateBase } from './CharacterStateBase.js';
 
 export class DropIdle extends CharacterStateBase
 {
@@ -22,7 +14,7 @@ export class DropIdle extends CharacterStateBase
 
 		if (this.anyDirection())
 		{
-			this.character.setState(new StartWalkForward(character));
+			this.character.setState(new this.character.anims.StartWalkForward(character));
 		}
 	}
 
@@ -32,7 +24,7 @@ export class DropIdle extends CharacterStateBase
 		this.character.setCameraRelativeOrientationTarget();
 		if (this.animationEnded(timeStep))
 		{
-			this.character.setState(new Idle(this.character));
+			this.character.setState(new this.character.anims.Idle(this.character));
 		}
 		this.fallInAir();
 	}
@@ -43,12 +35,12 @@ export class DropIdle extends CharacterStateBase
 		
 		if (this.character.actions.jump.justPressed)
 		{
-			this.character.setState(new JumpIdle(this.character));
+			this.character.setState(new this.character.anims.JumpIdle(this.character));
 		}
 
 		if (this.anyDirection())
 		{
-			this.character.setState(new StartWalkForward(this.character));
+			this.character.setState(new this.character.anims.StartWalkForward(this.character));
 		}
 	}
 }

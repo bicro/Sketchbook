@@ -1,25 +1,5 @@
 import * as Utils from '../../core/FunctionLibrary.js';
 
-import {
-	DropIdle,
-	DropRolling,
-	DropRunning,
-	Falling,
-	Idle,
-	JumpIdle,
-	JumpRunning,
-	IdleRotateLeft,
-	IdleRotateRight,
-	Sprint,
-	StartWalkBackLeft,
-	StartWalkBackRight,
-	StartWalkForward,
-	StartWalkLeft,
-	StartWalkRight,
-	EndWalk,
-	Walk,
-} from './_stateLibrary.js';
-
 export class CharacterStateBase
 {
 	constructor(character)
@@ -43,6 +23,7 @@ export class CharacterStateBase
 
 		this.timer = 0;
 	}
+
 
 	update(timeStep)
 	{
@@ -84,7 +65,7 @@ export class CharacterStateBase
 
 	fallInAir()
 	{
-		if (!this.character.rayHasHit) { this.character.setState(new Falling(this.character)); }
+		if (!this.character.rayHasHit) { this.character.setState(new this.character.anims.Falling(this.character)); }
 	}
 
 	animationEnded(timeStep)
@@ -108,29 +89,29 @@ export class CharacterStateBase
 	{
 		if (this.character.groundImpactData.velocity.y < -6)
 		{
-			this.character.setState(new DropRolling(this.character));
+			this.character.setState(new this.character.anims.DropRolling(this.character));
 		}
 		else if (this.anyDirection())
 		{
 			if (this.character.groundImpactData.velocity.y < -2)
 			{
-				this.character.setState(new DropRunning(this.character));
+				this.character.setState(new this.character.anims.DropRunning(this.character));
 			}
 			else
 			{
 				if (this.character.actions.run.isPressed)
 				{
-					this.character.setState(new Sprint(this.character));
+					this.character.setState(new this.character.anims.Sprint(this.character));
 				}
 				else
 				{
-					this.character.setState(new Walk(this.character));
+					this.character.setState(new this.character.anims.Walk(this.character));
 				}
 			}
 		}
 		else
 		{
-			this.character.setState(new DropIdle(this.character));
+			this.character.setState(new this.character.anims.DropIdle(this.character));
 		}
 	}
 
@@ -141,23 +122,23 @@ export class CharacterStateBase
 
 		if (angle > range * 0.8)
 		{
-			this.character.setState(new StartWalkBackLeft(this.character));
+			this.character.setState(new this.character.anims.StartWalkBackLeft(this.character));
 		}
 		else if (angle < -range * 0.8)
 		{
-			this.character.setState(new StartWalkBackRight(this.character));
+			this.character.setState(new this.character.anims.StartWalkBackRight(this.character));
 		}
 		else if (angle > range * 0.3)
 		{
-			this.character.setState(new StartWalkLeft(this.character));
+			this.character.setState(new this.character.anims.StartWalkLeft(this.character));
 		}
 		else if (angle < -range * 0.3)
 		{
-			this.character.setState(new StartWalkRight(this.character));
+			this.character.setState(new this.character.anims.StartWalkRight(this.character));
 		}
 		else
 		{
-			this.character.setState(new StartWalkForward(this.character));
+			this.character.setState(new this.character.anims.StartWalkForward(this.character));
 		}
 	}
 
