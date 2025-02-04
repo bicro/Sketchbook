@@ -1,9 +1,6 @@
 
 
-import
-{
-	CharacterStateBase,
-} from '../_stateLibrary.js';
+import { CharacterStateBase } from "../_stateLibrary.js";
 
 import { CloseVehicleDoorInside } from './CloseVehicleDoorInside.js';
 import { SeatType } from '../../../enums/SeatType.js';

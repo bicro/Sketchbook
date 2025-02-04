@@ -1,7 +1,4 @@
-import
-{
-	CharacterStateBase,
-} from '../_stateLibrary.js';
+import { CharacterStateBase } from "../_stateLibrary.js";
 
 import { Side } from '../../../enums/Side.js';
 import { Idle } from '../Idle.js';

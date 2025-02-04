@@ -1,10 +1,6 @@
 import * as THREE from 'three';
 
-
-import
-{
-	CharacterStateBase,
-} from '../_stateLibrary.js';
+import { CharacterStateBase } from "../_stateLibrary.js";
 
 import { Driving } from './Driving.js';
 import { Side } from '../../../enums/Side.js';

@@ -2,11 +2,7 @@ import * as THREE from 'three';
 import * as Utils from '../../../core/FunctionLibrary.js';
 
 
-import
-{
-	CharacterStateBase,
-} from '../_stateLibrary.js';
-
+import { CharacterStateBase } from "../_stateLibrary.js";
 
 export class ExitingStateBase extends CharacterStateBase
 {

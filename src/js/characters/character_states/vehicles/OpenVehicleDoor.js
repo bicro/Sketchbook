@@ -1,9 +1,6 @@
 import * as THREE from 'three';
 
-import
-{
-	CharacterStateBase,
-} from '../_stateLibrary.js';
+import { CharacterStateBase } from "../_stateLibrary.js";
 
 
 import { Side } from '../../../enums/Side.js';
