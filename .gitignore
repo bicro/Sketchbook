@@ -1,4 +1,7 @@
+.vscode
+# for gulp file saves
+# and local server testing
 node_modules
 gulpfile.js
-/nbproject/private/
-.vscode
+package.json
+package-loc.json
