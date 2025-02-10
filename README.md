@@ -7,11 +7,14 @@ So I:
 
 Converted everything typescript to vanilla javascript and   
 removed anything webpack so it'll run without much effort  
+
 Deciphered the scene/scenario building process in Blender   
 Essentially, everything in the Blender/GLTF scene is comprised  
 of two objects: one is the visible object and it's partner is a  
 similar shape with Custom Properties under the Object tab to  
-designate it as a hidden coliider "data: physics, type: box" 
+designate it as a hidden coliider "data: physics, type: box"  
+there are a few others as well and are used in the World.js  
+code as .userData.data and .userData.type  
   
 Currently replacing the boxman character with a Mixamo rigged to simplify changes.  
  - Not difficult, just tedious  
