@@ -3,18 +3,18 @@ KellyCode Feb 4, 2025
 This is a nice project, thank you swift502 for making it  
 Very clean code, well organized and easy to work with  
   
-So I ...  
-Converted everything typescript to vanilla javascript  
+So I:  
+
+Converted everything typescript to vanilla javascript and   
 removed anything webpack so it'll run without much effort  
-deciphered the scene/scenario building process in Blender  
-which I'll get around to explaining at some point  
+Deciphered the scene/scenario building process in Blender   
 Essentially, everything in the Blender/GLTF scene is comprised  
 of two objects: one is the visible object and it's partner is a  
 similar shape with Custom Properties under the Object tab to  
 designate it as a hidden coliider "data: physics, type: box" 
-
-Currently replacing the boxman character with a Mixamo rigged to make it easier to work with and modify.  
- - Not dofficult, just tedious  
+  
+Currently replacing the boxman character with a Mixamo rigged to simplify changes.  
+ - Not difficult, just tedious  
 
 ---
 
