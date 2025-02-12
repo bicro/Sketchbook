@@ -16,9 +16,9 @@ designate it as a hidden coliider "data: physics, type: box"
 there are a few others as well and are used in the World.js  
 code as .userData.data and .userData.type  
   
-Replaced the boxman character with a Mixamo rigged to simplify changes.  
-Did a character switch with a Miaxamo character and animations and it worked  
-out well without too much stretch (door closing & opening)
+Replaced the boxman character to poc and simplify toon changes.  
+Used a Miaxamo character and animations and it worked  
+out well and without too much fakery (door closing & opening)
 
 ---
 
