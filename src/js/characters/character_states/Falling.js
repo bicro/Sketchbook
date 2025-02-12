@@ -12,7 +12,7 @@ export class Falling extends CharacterStateBase
 		this.character.arcadeVelocityIsAdditive = true;
 		this.character.setArcadeVelocityInfluence(0.05, 0, 0.05);
 
-		this.playAnimation('falling', 0.3);
+		this.playAnimation('falling_idle', 0.3);
 	}
 
 	 update(timeStep)

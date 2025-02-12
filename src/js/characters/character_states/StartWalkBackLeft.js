@@ -6,6 +6,6 @@ export class StartWalkBackLeft extends StartWalkBase
 	{
 		super(character);
 
-		this.animationLength = character.setAnimation('start_back_left', 0.1);
+		this.animationLength = character.setAnimation('turn_left', 0.1);
 	}
 }

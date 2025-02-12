@@ -17,7 +17,7 @@ export class ExitingAirplane extends ExitingStateBase {
         this.exitPoint.lookAt(forward);
         this.exitPoint.position.copy(this.endPosition);
 
-        this.playAnimation("jump_idle", 0.1);
+        this.playAnimation("jump", 0.1);
     }
 
     update(timeStep) {

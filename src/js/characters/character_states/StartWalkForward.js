@@ -6,6 +6,6 @@ export class StartWalkForward extends StartWalkBase
 	{
 		super(character);
 
-		this.animationLength = character.setAnimation('start_forward', 0.1);
+		this.animationLength = character.setAnimation('walk_normal', 0.1);
 	}
 }

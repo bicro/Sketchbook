@@ -36,7 +36,9 @@ export class EnteringVehicle extends CharacterStateBase
 		this.startPosition.copy(entryPoint.position);
 		this.startPosition.y += 0.53;
 		this.endPosition.copy(seat.seatPointObject.position);
-		this.endPosition.y += 0.6;
+
+		// how high is the seat
+		this.endPosition.y += 0.3;
 		this.initialPositionOffset.copy(this.startPosition).sub(this.character.position);
 
 		this.startRotation.copy(this.character.quaternion);
@@ -44,6 +46,9 @@ export class EnteringVehicle extends CharacterStateBase
 
 		this.factorSimulator = new SpringSimulator(60, 10, 0.5);
 		this.factorSimulator.target = 1;
+
+		// speed up entering the vehicle
+		this.animationLength = 0.25;
 	}
 
 	 update(timeStep)
@@ -91,14 +96,14 @@ export class EnteringVehicle extends CharacterStateBase
 		{
 			case EntityType.Airplane:
 				return {
-					[Side.Left]: 'enter_airplane_left',
-					[Side.Right]: 'enter_airplane_right',
+					[Side.Left]: 'jump',
+					[Side.Right]: 'jump',
 					end_early: 0.3
 				};
 			default:
 				return {
-					[Side.Left]: 'sit_down_left',
-					[Side.Right]: 'sit_down_right',
+					[Side.Left]: 'entering_car',
+					[Side.Right]: 'entering_car',
 					end_early: 0.0
 				};
 		}

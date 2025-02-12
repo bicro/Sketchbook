@@ -10,7 +10,7 @@ export class DropIdle extends CharacterStateBase
 		this.character.velocitySimulator.mass = 7;
 
 		this.character.setArcadeVelocityTarget(0);
-		this.playAnimation('drop_idle', 0.1);
+		this.playAnimation('drop_landing', 0.1);
 
 		if (this.anyDirection())
 		{

@@ -16,7 +16,7 @@ export class DropRolling extends CharacterStateBase
 		this.character.velocitySimulator.damping = 0.6;
 
 		this.character.setArcadeVelocityTarget(0.8);
-		this.playAnimation('drop_running_roll', 0.03);
+		this.playAnimation('falling_roll', 0.03);
 	}
 
 	 update(timeStep)

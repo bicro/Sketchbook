@@ -10,7 +10,7 @@ export class Idle extends CharacterStateBase
 		this.character.velocitySimulator.mass = 10;
 
 		this.character.setArcadeVelocityTarget(0);
-		this.playAnimation('idle', 0.1);
+		this.playAnimation('idle_neutral', 0.1);
 	}
 
 	 update(timeStep)

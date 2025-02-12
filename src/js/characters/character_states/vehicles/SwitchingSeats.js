@@ -30,20 +30,23 @@ export class SwitchingSeats extends CharacterStateBase
 
 		if (side === Side.Left)
 		{
-			this.playAnimation('sitting_shift_left', 0.1);
+			this.playAnimation('sitting', 0.1);
 		}
 		else if (side === Side.Right)
 		{
-			this.playAnimation('sitting_shift_right', 0.1);
+			this.playAnimation('sitting', 0.1);
 		}
 
 		this.startPosition.copy(fromSeat.seatPointObject.position);
-		this.startPosition.y += 0.6;
+		this.startPosition.y += 0.4;
 		this.endPosition.copy(toSeat.seatPointObject.position);
-		this.endPosition.y += 0.6;
+		this.endPosition.y += 0.4;
 
 		this.startRotation.copy(fromSeat.seatPointObject.quaternion);
 		this.endRotation.copy(toSeat.seatPointObject.quaternion);
+
+		// again, messing with the animation length
+		this.animationLength = 1;
 	}
 
 	 update(timeStep)
