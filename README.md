@@ -1,24 +1,19 @@
 KellyCode Feb 12, 2025  
   
-This is a nice project, thank you swift502 for making it  
-Very clean code, well organized and easy to work with  
+This is a nice project, thank you swift502 for making it. Very clean code, well organized and easy to work with and I LOVE the physics!
   
 So I:  
 
-Converted everything typescript to vanilla javascript and   
-removed anything webpack so it'll run without much effort  
+Converted everything typescript to vanilla javascript and removed anything webpack so it'll run without much effort  
 
-Deciphered the scene/scenario building process in Blender   
-Essentially, everything in the Blender/GLTF scene is comprised  
-of two objects: one is the visible object and it's partner is a  
-similar shape with Custom Properties under the Object tab to  
-designate it as a hidden coliider "data: physics, type: box"  
-there are a few others as well and are used in the World.js  
+Deciphered the scene/scenario building process in Blender: Essentially, everything in the Blender/GLTF scene is comprised  
+of two objects: one is the visible object and it's partner is a similar shape with Custom Properties under the Object tab to  
+designate it as a hidden coliider "data: physics, type: box" there are a few others as well and are used in the World.js  
 code as .userData.data and .userData.type  
   
-Replaced the boxman character to poc and simplify toon changes.  
-Used a Miaxamo character and animations and it worked  
-out well and without too much fakery (door closing & opening)
+Replaced the boxman character to simplify toon changes. Used a Miaxamo character and animations and it worked  
+out well and without too much fakery (door closing & opening).  It's just a Mixamo character and their animations and  
+the most I did was edit the animations a bit and convert everything to glb.  
 
 ---
 
