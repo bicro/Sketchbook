@@ -1,4 +1,4 @@
-KellyCode Feb 10, 2025  
+KellyCode Feb 12, 2025  
   
 This is a nice project, thank you swift502 for making it  
 Very clean code, well organized and easy to work with  
@@ -16,8 +16,9 @@ designate it as a hidden coliider "data: physics, type: box"
 there are a few others as well and are used in the World.js  
 code as .userData.data and .userData.type  
   
-Currently replacing the boxman character with a Mixamo rigged to simplify changes.  
- - Not difficult, just tedious  
+Replaced the boxman character with a Mixamo rigged to simplify changes.  
+Did a character switch with a Miaxamo character and animations and it worked  
+out well without too much stretch (door closing & opening)
 
 ---
 
