@@ -1,26 +1,19 @@
-KellyCode Feb 12, 2025  
-  
-This is a nice project, thank you swift502 for making it. Very clean code, well organized and easy to work with and I LOVE the physics!
-  
-So I:  
+KellyCode Feb 13, 2025
 
-Converted everything typescript to vanilla javascript and removed anything webpack so it'll run without much effort  
+1. Converted everything typescript to vanilla javascript and removed anything webpack so it'll run without much effort
 
-Deciphered the scene/scenario building process in Blender: Essentially, everything in the Blender/GLTF scene is comprised  
-of two objects: one is the visible object and it's partner is a similar shape with Custom Properties under the Object tab to  
-designate it as a hidden coliider "data: physics, type: box" there are a few others as well and are used in the World.js  
-code as .userData.data and .userData.type  
-  
-Replaced the boxman character to simplify toon changes. Used a Miaxamo character and animations and it worked  
-out well and without too much fakery (door closing & opening).  It's just a Mixamo character and their animations and  
-the most I did was edit the animations a bit and convert everything to glb.  
+2. Deciphered the scene/scenario building process in Blender: Essentially, everything in the Blender/GLTF scene is comprised of two objects: one is the visible object and it's partner is a similar shape with Custom Properties under the Object tab to designate it as a hidden coliider "data: physics, type: box" there are a few others as well and are used in the World.js code as .userData.data and .userData.type
 
-<p align="center">
-	<a href="https://kellycode.github.io/Sketchbook-JS/"><img src="./src/img/thumbnail.png"></a>
-	<br>
-	<a href="https://kellycode.github.io/Sketchbook-JS/">Live (new) demo</a>
-	<br>
+3. Replaced the boxman character with a Mixamo character to simplify toon changes. The Mixamo character and animations worked out well and without too much fakery (door closing & opening). I edited the animations a bit and converted the Mixamo fbx to glb.
+
+<p  align="center">
+<a  href="https://kellycode.github.io/Sketchbook-JS/"><img  src="https://kellycode.github.io/Sketchbook-JS/src/img/thumbnail.png"></a>
+<br>
+<a  href="https://kellycode.github.io/Sketchbook-JS/">Live (new) demo</a>
+<br>
 </p>
+
+This is a nice project, thank you swift502 for making it. Very clean code, well organized and easy to work with and I LOVE the physics!
 
 ---
 
@@ -35,8 +28,8 @@ the most I did was edit the animations a bit and convert everything to glb.
 
 As I have no more interest in developing this project, it comes to a conclusion. In order to remain honest about the true state of the project, I am archiving this repository.
 
-- If you wish to modify Sketchbook feel free to fork it.
-- To see if someone is currently maintaining a fork, check out the [Network Graph](https://github.com/swift502/Sketchbook/network).
+-   If you wish to modify Sketchbook feel free to fork it.
+-   To see if someone is currently maintaining a fork, check out the [Network Graph](https://github.com/swift502/Sketchbook/network).
 
 # 📒 Sketchbook
 
@@ -46,21 +39,21 @@ Mostly a playground for exploring how conventional third person gameplay mechani
 
 ## Features
 
-* World
-	* Three.js scene
-	* Cannon.js physics
-	* Variable timescale
-	* Frame skipping
-	* FXAA anti-aliasing
-* Characters
-	* Third-person camera
-	* Raycast character controller with capsule collisions
-	* General state system
-	* Character AI
-* Vehicles
-	* Cars
-	* Airplanes
-	* Helicopters
+-   World
+    -   Three.js scene
+    -   Cannon.js physics
+    -   Variable timescale
+    -   Frame skipping
+    -   FXAA anti-aliasing
+-   Characters
+    -   Third-person camera
+    -   Raycast character controller with capsule collisions
+    -   General state system
+    -   Character AI
+-   Vehicles
+    -   Cars
+    -   Airplanes
+    -   Helicopters
 
 All planned features can be found in the [GitHub Projects](https://github.com/swift502/Sketchbook/projects).
 
@@ -79,7 +72,7 @@ You can define your own scenes in Blender, and then read them with Sketchbook. S
 2. Load a glb scene defined in Blender:
 
 ```javascript
-const world = new Sketchbook.World('scene.glb');
+const world = new Sketchbook.World("scene.glb");
 ```
 
 <!--
@@ -119,6 +112,6 @@ const world = new World('scene.glb');
 
 Big thank you to each of the following github users for contributing to Sketchbook:
 
-- [aleqsunder](https://github.com/aleqsunder)
-- [barhatsor](https://github.com/barhatsor)
-- [danshuri](https://github.com/danshuri)
+-   [aleqsunder](https://github.com/aleqsunder)
+-   [barhatsor](https://github.com/barhatsor)
+-   [danshuri](https://github.com/danshuri)
