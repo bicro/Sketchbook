@@ -20,10 +20,17 @@ Replaced the boxman character to poc and simplify toon changes.
 Used a Miaxamo character and animations and it worked  
 out well and without too much fakery (door closing & opening)
 
+<p align="center">
+	<a href="https://kellycode.github.io/Sketchbook-JS/"><img src="./src/img/thumbnail.png"></a>
+	<br>
+	<a href="https://kellycode.github.io/Sketchbook-JS/">Live (new) demo</a>
+	<br>
+</p>
+
 ---
 
 <p align="center">
-	<a href="https://jblaha.art/sketchbook/latest"><img src="./src/img/thumbnail.png"></a>
+	<a href="https://jblaha.art/sketchbook/latest"><img src="./src/img/thumbnail_original.png"></a>
 	<br>
 	<a href="https://jblaha.art/sketchbook/latest">Live demo</a>
 	<br>
