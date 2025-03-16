@@ -4,7 +4,7 @@ KellyCode Feb 13, 2025
 
 2. Deciphered the scene/scenario building process in Blender: Essentially, everything in the Blender/GLTF scene is comprised of two objects: one is the visible object and it's partner is a similar shape with Custom Properties under the Object tab to designate it as a hidden coliider "data: physics, type: box" there are a few others as well and are used in the World.js code as .userData.data and .userData.type.
 
-3. Replaced the boxman character with a Mixamo character to simplify toon changes. The Mixamo character and animations worked out well and without too much fakery (door closing & opening). I edited the animations a bit and converted the Mixamo fbx to glb.  The left and right turn animations are affected by the direction the camera is facing so will look at that.
+3. Replaced the boxman character with a Mixamo character to simplify toon changes (POC) with only a couple hours effort. The Mixamo character and animations worked out well and without too much fakery (door closing & opening). I edited the animations a bit and converted the Mixamo fbx to glb.  The left and right turn animations are affected by the direction the camera is facing so will look at that.
 
 4. Made the car blue and added door signs. When modifying any of the glb items, make sure to include custom properties in the glb export.
 
