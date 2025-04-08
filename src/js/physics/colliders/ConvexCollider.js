@@ -22,18 +22,32 @@ export class ConvexCollider
 		mat.friction = options.friction;
 		// mat.restitution = 0.7;
 
-		if (this.mesh.geometry.isBufferGeometry)
-		{
-			this.mesh.geometry = new THREE.Geometry().fromBufferGeometry(this.mesh.geometry);
+		// Extract vertices and faces from BufferGeometry
+		const geometry = this.mesh.geometry;
+		const position = geometry.attributes.position;
+		const vertices = [];
+		const faces = [];
+		
+		// Extract vertices
+		for (let i = 0; i < position.count; i++) {
+			vertices.push(new THREE.Vector3(
+				position.getX(i),
+				position.getY(i),
+				position.getZ(i)
+			));
+		}
+		
+		// Extract faces (assuming triangles)
+		for (let i = 0; i < position.count; i += 3) {
+			faces.push([i, i + 1, i + 2]);
 		}
 
-		let cannonPoints = this.mesh.geometry.vertices.map((v) => {
-			return new CANNON.Vec3( v.x, v.y, v.z );
+		// Convert to CANNON vectors
+		let cannonPoints = vertices.map((v) => {
+			return new CANNON.Vec3(v.x, v.y, v.z);
 		});
 		
-		let cannonFaces = this.mesh.geometry.faces.map((f) => {
-			return [f.a, f.b, f.c];
-		});
+		let cannonFaces = faces;
 
 		let shape = new CANNON.ConvexPolyhedron(cannonPoints, cannonFaces);
 		// shape.material = mat;

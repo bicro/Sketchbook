@@ -2,7 +2,7 @@
  * ShaderFix.js
  * 
  * Utility functions to handle Three.js version compatibility issues
- * when upgrading from r113 to r123.
+ * when upgrading from r113 to r143.
  */
 
 import * as THREE from 'three';
@@ -43,5 +43,38 @@ export const QuaternionCompat = {
     inverse: function(quaternion) {
         // Use the new invert() method which modifies the quaternion in-place
         return quaternion.invert();
+    }
+};
+
+/**
+ * Compatibility helpers for r123 to r143 migration
+ */
+export const CompatR143 = {
+    /**
+     * Helper for handling texture format changes in r143
+     * RGBFormat has been removed, use RGBAFormat instead
+     */
+    getTextureFormat: function(format) {
+        // If using the old RGBFormat, return RGBAFormat instead
+        if (format === 1) { // 1 was the value of RGBFormat
+            return THREE.RGBAFormat;
+        }
+        return format;
+    },
+    
+    /**
+     * Helper for handling material fog property changes
+     * The fog property has been moved from the abstract Material class to materials which actually support it
+     */
+    setMaterialFog: function(material, fogEnabled) {
+        // Only set fog property on materials that support it in r143
+        if (material.type === 'MeshBasicMaterial' || 
+            material.type === 'MeshLambertMaterial' || 
+            material.type === 'MeshPhongMaterial' || 
+            material.type === 'MeshStandardMaterial' || 
+            material.type === 'MeshPhysicalMaterial' ||
+            material.type === 'MeshToonMaterial') {
+            material.fog = fogEnabled;
+        }
     }
 };
