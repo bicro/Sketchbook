@@ -1,4 +1,4 @@
-import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.123.0/examples/jsm/loaders/GLTFLoader.js';
 import { LoadingTrackerEntry } from './LoadingTrackerEntry.js';
 import { UIManager } from './UIManager.js';
 //import Swal from 'sweetalert2';

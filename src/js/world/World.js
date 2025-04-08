@@ -2,10 +2,10 @@ import * as THREE from "three";
 
 import { CameraOperator } from "../core/CameraOperator.js";
 
-import { EffectComposer } from "three/addons/postprocessing/EffectComposer.js";
-import { RenderPass } from "three/addons/postprocessing/RenderPass.js";
-import { ShaderPass } from "three/addons/postprocessing/ShaderPass.js";
-import { FXAAShader } from "three/addons/shaders/FXAAShader.js";
+import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.123.0/examples/jsm/postprocessing/EffectComposer.js";
+import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.123.0/examples/jsm/postprocessing/RenderPass.js";
+import { ShaderPass } from "https://cdn.jsdelivr.net/npm/three@0.123.0/examples/jsm/postprocessing/ShaderPass.js";
+import { FXAAShader } from "https://cdn.jsdelivr.net/npm/three@0.123.0/examples/jsm/shaders/FXAAShader.js";
 
 import { Detector } from "../../lib/utils/Detector.js";
 import { Stats } from "../../lib/utils/Stats.js";

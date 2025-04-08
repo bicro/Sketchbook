@@ -31,7 +31,7 @@ export class Sky extends THREE.Object3D {
         });
 
         // Mesh
-        this.skyMesh = new THREE.Mesh(new THREE.SphereBufferGeometry(1000, 24, 12), this.skyMaterial);
+        this.skyMesh = new THREE.Mesh(new THREE.SphereGeometry(1000, 24, 12), this.skyMaterial);
         this.attach(this.skyMesh);
 
         // Ambient light
