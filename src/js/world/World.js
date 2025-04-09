@@ -1,4 +1,5 @@
 import * as THREE from "three";
+import { VRM } from "@pixiv/three-vrm";
 
 import { CameraOperator } from "../core/CameraOperator.js";
 
@@ -6,6 +7,7 @@ import { EffectComposer } from "https://cdn.jsdelivr.net/npm/three@0.143.0/examp
 import { RenderPass } from "https://cdn.jsdelivr.net/npm/three@0.143.0/examples/jsm/postprocessing/RenderPass.js";
 import { ShaderPass } from "https://cdn.jsdelivr.net/npm/three@0.143.0/examples/jsm/postprocessing/ShaderPass.js";
 import { FXAAShader } from "https://cdn.jsdelivr.net/npm/three@0.143.0/examples/jsm/shaders/FXAAShader.js";
+import { GLTFLoader } from "https://cdn.jsdelivr.net/npm/three@0.143.0/examples/jsm/loaders/GLTFLoader.js";
 
 import { Detector } from "../../lib/utils/Detector.js";
 import { Stats } from "../../lib/utils/Stats.js";
@@ -158,6 +160,9 @@ export class World {
                 this.update(1, 1);
                 this.setTimeScale(1);
                 UIManager.setUserInterfaceVisible(true);
+                
+                // Load VRM model
+                this.loadVRMModel();
 
                 // Swal.fire({
                 // 	title: 'Welcome to Sketchbook!',
@@ -317,6 +322,31 @@ export class World {
         _.pull(this.updatables, registree);
     }
 
+    loadVRMModel() {
+        const loader = new GLTFLoader();
+        loader.crossOrigin = 'anonymous';
+        
+        // Load VRM model
+        loader.load('assets/test.vrm', (gltf) => {
+            // Import VRM from the loaded GLTF
+            VRM.from(gltf).then((vrm) => {
+                console.log('VRM model loaded:', vrm);
+                
+                // Add the VRM model to the scene
+                this.graphicsWorld.add(vrm.scene);
+                
+                // Position the model
+                vrm.scene.position.set(0, 15, 0);
+                vrm.scene.scale.set(1, 1, 1);
+                
+                // Store the VRM model for later use
+                this.vrmModel = vrm;
+            });
+        },
+        (progress) => console.log('Loading VRM model...', 100.0 * (progress.loaded / progress.total), '%'),
+        (error) => console.error('Error loading VRM model:', error));
+    }
+    
     loadScene(loadingManager, gltf) {
         gltf.scene.traverse((child) => {
             if (child.hasOwnProperty("userData")) {
