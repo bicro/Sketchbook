@@ -1,5 +1,5 @@
 import * as THREE from "three";
-import { VRM } from "@pixiv/three-vrm";
+import { VRM, VRMUtils } from "@pixiv/three-vrm";
 
 import { CameraOperator } from "../core/CameraOperator.js";
 
@@ -328,20 +328,26 @@ export class World {
         
         // Load VRM model
         loader.load('assets/test.vrm', (gltf) => {
-            // Import VRM from the loaded GLTF
-            VRM.from(gltf).then((vrm) => {
-                console.log('VRM model loaded:', vrm);
-                
-                // Add the VRM model to the scene
-                this.graphicsWorld.add(vrm.scene);
-                
-                // Position the model
-                vrm.scene.position.set(0, 15, 0);
-                vrm.scene.scale.set(1, 1, 1);
-                
-                // Store the VRM model for later use
-                this.vrmModel = vrm;
+            // Create a new VRM instance
+            const vrm = new VRM({
+                scene: gltf.scene,
+                meta: gltf.userData.gltfExtensions?.VRM?.meta
             });
+            
+            // Initialize the VRM instance
+            vrm.humanoid?.setPose({});
+            
+            console.log('VRM model loaded:', vrm);
+            
+            // Add the VRM model to the scene
+            this.graphicsWorld.add(vrm.scene);
+            
+            // Position the model
+            vrm.scene.position.set(3, 15, 0); // Positioned next to the current character
+            vrm.scene.scale.set(1, 1, 1);
+            
+            // Store the VRM model for later use
+            this.vrmModel = vrm;
         },
         (progress) => console.log('Loading VRM model...', 100.0 * (progress.loaded / progress.total), '%'),
         (error) => console.error('Error loading VRM model:', error));
